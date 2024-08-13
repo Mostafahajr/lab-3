@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrackController;
 use Faker\Guesser\Name;
@@ -39,7 +40,16 @@ Route::get("/tracks/del/{id}",[TrackController::class,"delete"])->name("track.de
 Route::get("/tracks/view/{id}",[TrackController::class,"view"])->name("track.view");
 
 
-Route::resource("/tracks",[TrackController::class]);
+Route::resource('course',CourseController::class);
+
+// courses ............. courses.index › CourseController@index
+// POST            courses .......courses.store › CourseController@store
+// GET|HEAD        courses/create ........courses.create › CourseController@create
+// GET|HEAD        courses/{course} ........ courses.show › CourseController@show
+// PUT|PATCH       courses/{course} .......... courses.update › CourseController@update
+// DELETE          courses/{course} ...........courses.destroy › CourseController@destroy
+// GET|HEAD        courses/{course}/edit .........courses.edit › CourseController@edit
+
 
 
 

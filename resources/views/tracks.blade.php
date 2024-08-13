@@ -14,6 +14,12 @@
             background-size: cover;
 
         }
+        .w-5.h-5{
+            width: 10px;
+        }
+        .hidden{
+           display: none;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +84,7 @@
 
           </tbody>
       </table>
+      {{$tracks->links()}}
 
     </div>
 

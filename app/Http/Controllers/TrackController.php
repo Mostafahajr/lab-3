@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class TrackController extends Controller
 {
     //
-    function list(){
-        $tracks = Track::all();
+    public function list(){
+        $tracks = Track::paginate(5);
         return view("tracks",["tracks"=>$tracks]);
     }
     function create(){
@@ -52,12 +52,12 @@ class TrackController extends Controller
         $track->update();
         return to_route("tracks");
     }
-    function delete($id){
-        $track = Track::find($id);
+    public function delete(Track $track){
+
 
         $track->delete();
-        $tracks = Track::all();
-        return view("tracks",["tracks"=>$tracks]);
+
+        return to_route("tracks.index");
     }
     function view($id){
         $track = Track::find($id);
