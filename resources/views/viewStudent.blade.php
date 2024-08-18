@@ -19,6 +19,9 @@
         <li class="list-group-item"><b>name</b> : {{$student['name']}}</li>
         <li class="list-group-item"><b>address</b> : {{$student['address']}}</li>
         <li class="list-group-item"> <a href="{{route('students')}}">
+            @if($student->track)
+            <li><a href="{{route('tracks.show',$student->track_id)}}">{{ $student->track->name}}</a></li>
+            @endif
             <button class="btn btn-warning">
                 back
             </button>
